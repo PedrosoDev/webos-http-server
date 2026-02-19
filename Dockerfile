@@ -7,9 +7,9 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json ./
 
-RUN ls
 # Instalar dependências (incluindo dev para build)
-RUN npm ci
+# RUN npm ci
+RUN npm i
 
 # Copiar código fonte
 COPY src ./src
