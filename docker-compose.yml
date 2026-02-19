@@ -15,8 +15,6 @@ services:
     volumes:
       # Persistir dados das TVs
       - tv-data:/app/data
-    networks:
-      - webos-network
     restart: unless-stopped
     # Necessário para acessar dispositivos na rede local
     network_mode: host
@@ -24,7 +22,3 @@ services:
 volumes:
   tv-data:
     driver: local
-
-networks:
-  webos-network:
-    driver: bridge
