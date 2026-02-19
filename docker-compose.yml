@@ -4,14 +4,11 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: webos-http-server
-    ports:
-      - "3000:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
       - HOST=0.0.0.0
     volumes:
-      # Persistir dados das TVs
       - tv-data:/app/data
     restart: unless-stopped
     # Necessário para acessar dispositivos na rede local
