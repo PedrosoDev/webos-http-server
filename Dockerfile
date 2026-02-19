@@ -3,6 +3,9 @@ FROM node:23-alpine AS builder
 
 WORKDIR /app
 
+# Instalar dependências de build para pacotes nativos
+RUN apk add --no-cache python3 make g++
+
 # Copiar arquivos de dependências
 COPY package*.json ./
 COPY tsconfig.json ./
@@ -24,8 +27,8 @@ WORKDIR /app
 # Copiar código compilado do builder
 COPY --from=builder /app/ .
 
-# Criar diretório data para persistência
-RUN mkdir -p /app/data
+# Criar diretório data para persistência e ajustar permissões
+RUN mkdir -p /app/data && chown -R node:node /app
 
 # Variáveis de ambiente padrão
 ENV NODE_ENV=production \
