@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+.env.local
+.env.docker
+*.log
+.DS_Store
+coverage
+data/
+!data/.gitkeep
+
+# Docker
+*.dockerignore.backup
+docker-compose.override.yml
