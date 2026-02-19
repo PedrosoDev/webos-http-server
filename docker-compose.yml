@@ -1,9 +1,7 @@
 services:
   webos-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: webos-http-server
+    image: ghcr.io/pedrosodev/webos-http-server:master
     environment:
       - NODE_ENV=production
       - PORT=3000
