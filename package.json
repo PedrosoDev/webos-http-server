@@ -9,6 +9,7 @@
     "start": "node dist/server.js",
     "type-check": "tsc --noEmit",
     "docker:build": "docker build -t webos-http-server .",
+    "docker:build:multi": "docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/pedrosodev/webos-http-server:master --push .",
     "docker:run": "docker run -d -p 3000:3000 --name webos-server --network host webos-http-server",
     "docker:stop": "docker stop webos-server && docker rm webos-server",
     "docker:logs": "docker logs -f webos-server",
