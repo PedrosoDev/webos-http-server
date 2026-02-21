@@ -105,11 +105,13 @@ class TvManager {
     connection.status = Status.CONNECTING;
 
     return new Promise((resolve, reject) => {
+      const keyFilePath = join(DATA_DIR, `tv-${tvId}.key`);
       const lgtv = new LGTV({
         url: `ws${connection.config.secure ? "s" : ""}://${connection.config.ip}:${connection.config.port || 3000}`,
         timeout: 5000,
         reconnect: 3000,
         clientKey: connection.config.clientKey,
+        keyFile: keyFilePath,
         rejectUnauthorized: false, // Ignorar erros de certificado SSL
       });
 
